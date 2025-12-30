@@ -21,6 +21,7 @@ class App{
             if(method_exists($this->controller, $url[1])){
                 $this->method = $url[1];
                 unset($url[1]);
+                // var_dump($url);
             }
         }
 
@@ -39,8 +40,9 @@ class App{
         if(isset($_GET['url'])){
             $url = rtrim($_GET['url'], '/'); //hilangkan / di url
             $url = filter_var($url, FILTER_SANITIZE_URL); //untuk menghilangkan karakter aneh aneh
-            $url = explode('/', $url); //memisahkan url berdasarkan /
-            return $url;
+            return $url = explode('/', $url); //memisahkan url berdasarkan /
+           
         }
+        return [];
     }
 }
